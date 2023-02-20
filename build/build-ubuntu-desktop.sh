@@ -50,6 +50,9 @@ echo "******* Ending -- apt-get install build-essential gcc make perl dkms"
 echo "******* Starting -- apt install chrony"
 sudo apt install chrony -y
 echo "******* Ending -- apt install chrony"
+echo "******* Starting -- apt install gdm3"
+sudo apt install gdm3 -y
+echo "******* Ending -- apt install gdm3"
 
 #
 # OpenSSH
@@ -110,6 +113,9 @@ echo "******* Starting -- dummy video driver"
 sudo apt-get install xserver-xorg-core -y
 sudo apt-get install xorg-video-abi-23 -y
 sudo apt-get install xserver-xorg-video-dummy -y
+apt install aptitude -y
+aptitude install xserver-xorg-video-dummy-hwe-18.04 ubuntu-desktop -y
+apt install x11vnc -y
 echo "******* Ending -- dummy video driver"
 
 sudo cp $TMPDIRX11CONF/*.conf $XORGCONFDIR
@@ -117,7 +123,7 @@ sudo cp $TMPDIRX11CONF/*.conf $XORGCONFDIR
 GRUBFILE=/etc/default/grub
 
 sudo sed -i "s/splash\"/splash nomodeset\"/" $GRUBFILE
-
+sudo sed -i "s/#WaylandEnable=false\"/AllowRoot=true #WaylandEnable=false\"/" /etc/gdm3/custom.conf
 echo "******* Starting -- update-grub"
 sudo update-grub
 echo "******* Ending -- update-grub"

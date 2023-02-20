@@ -114,7 +114,7 @@ sudo apt-get install xserver-xorg-core -y
 sudo apt-get install xorg-video-abi-23 -y
 sudo apt-get install xserver-xorg-video-dummy -y
 apt install aptitude -y
-aptitude install xserver-xorg-video-dummy-hwe-18.04 ubuntu-desktop -y
+aptitude install xserver-xorg-video-dummy-hwe-18.04 ubuntu-desktop xserver-xorg-input-wacom-hwe-18.04-y
 apt install x11vnc -y
 echo "******* Ending -- dummy video driver"
 
